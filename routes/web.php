@@ -51,14 +51,8 @@
 
     $router->group(['prefix' => 'news'], function () use ($router) 
     {
-        $router->get('/', 'NewsController@getArticles');
-        $router->get('{id}', 'NewsController@getArticlesById');
-    });
-
-    $router->group(['prefix' => 'users'], function () use ($router) 
-    {
-        $router->get('/', 'UsersController@getUsers');
-        $router->get('{id}', 'UsersController@getUsersById');
+        $router->get('/', 'NewsController@getNews');
+        $router->get('{id}', 'NewsController@getNewsById');
     });
 
     // Secured routes
@@ -124,6 +118,8 @@
         // Users Routes
         $router->group(['prefix' => 'users'], function () use ($router) 
         {
+            $router->get('/', 'UsersController@getUsers');
+            $router->get('{id}', 'UsersController@getUsersById');
             $router->post('/', 'UsersController@postUsers');
             $router->put('{id}', 'UsersController@putUsers');
             $router->delete('{id}', 'UsersController@deleteUsers');
@@ -133,12 +129,12 @@
         // User Types Routes
         $router->group(['prefix' => 'user-types'], function () use ($router) 
         {
-            $router->get('/', 'UserTypesController@getUsers');
-            $router->get('{id}', 'UserTypesController@getUsersById');
-            $router->post('/', 'UserTypesController@postUsers');
-            $router->put('{id}', 'UserTypesController@putUsers');
-            $router->delete('{id}', 'UserTypesController@deleteUsers');
-            $router->patch('{id}', 'UserTypesController@restoreUsers');
+            $router->get('/', 'UserTypesController@getUserTypes');
+            $router->get('{id}', 'UserTypesController@getUserTypesById');
+            $router->post('/', 'UserTypesController@postUserTypes');
+            $router->put('{id}', 'UserTypesController@putUserTypes');
+            $router->delete('{id}', 'UserTypesController@deleteUserTypes');
+            $router->patch('{id}', 'UserTypesController@restoreUserTypes');
         });
 
         /**

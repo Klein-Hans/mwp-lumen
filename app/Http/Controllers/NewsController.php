@@ -27,13 +27,13 @@ class NewsController extends Controller
         $data = $this->get($this->table);
         foreach ($data as $i => $val) 
         {   
-            $data[$i]->file = $data[$i]->images()->where('foreign_table', 'news')->get();
+            // $data[$i]->file = $data[$i]->files()->where('category', 'news')->get();
 
-            foreach ($data[$i]->file as $key => $value) {
-                // $data[$i]->file[$key]->file = base64_encode(Storage::get($data[$i]->file[$key]->image_name));
-                $data[$i]->file[$key]->file = "";
-                $data[$i]->file[$key]->file_name = $data[$i]->file[$key]->image_name;
-            }
+            // foreach ($data[$i]->file as $key => $value) {
+            //     // $data[$i]->file[$key]->file = base64_encode(Storage::get($data[$i]->file[$key]->image_name));
+            //     $data[$i]->file[$key]->file = "";
+            //     $data[$i]->file[$key]->file_name = $data[$i]->file[$key]->image_name;
+            // }
         }
         return $this->responseOk($data);
     }

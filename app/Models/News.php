@@ -1,4 +1,6 @@
-<?php namespace App;
+<?php 
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
@@ -24,7 +26,7 @@ class News extends Model {
 
     public function files()
     {
-        return $this->hasOne('App\Models\Files', 'foreign_id');
+        return $this->hasOne('App\Models\Files', 'category');
     }
 
 }
